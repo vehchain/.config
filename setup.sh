@@ -1,31 +1,25 @@
 #!/bin/sh
+set -e
 
 sudo pacman -S \
- sway swaybg pipewire pipewire-alsa pipewire-jack pipewire-pulse \
- wireplumber git pavucontrol pamixer brightnessctl ddcutil rofi  \
- slurp wl-clipboard xdg-desktop-portal xdg-desktop-portal-wlr    \
- terminus-font yad grim lxqt-policykit jq
+ pipewire pipewire-alsa pipewire-jack pipewire-pulse \
+ wireplumber pavucontrol pamixer brightnessctl ddcutil rofi  \
+ pipewire-openrc wireplumber-openrc pipewire-pulse-openrc \
+ wl-clipboard  nwg-look terminus-font yad lxqt-policykit jq \
+ mesa vulkan-icd-loader vulkan-tools vulkan-radeon vulkan-intel \
+ lib32-mesa lib32-vulkan-icd-loader lib32-vulkan-tools lib32-vulkan-radeon \
+ lib32-vulkan-intel neovim kitty xorg xorg-xinit i3-wm i3blocks i3status 
 
-systemctl --user enable pipewire
-systemctl --user start pipewire
+rc-update add pipewire default --user
+rc-update add wireplumber default --user
+rc-update add pipewire-pulse default --user
 
-systemctl --user enable pipewire-pulse
-systemctl --user start pipewire-pulse
+rc-service pipewire start --user
+rc-service wireplumber start --user
+rc-service pipewire-pulse start --user
 
-systemctl --user enable wireplumber
-systemctl --user start wireplumber
-
-systemctl --user start xdg-desktop-portal
-systemctl --user start xdg-desktop-portal-wlr.service
-
-sudo chmod +x ~/.config/sway/handlers/media.sh
-sudo chmod +x ~/.config/sway/handlers/media-brightnessctl.sh
-sudo chmod +x ~/.config/sway/handlers/metrics-battery.sh
-sudo chmod +x ~/.config/sway/handlers/metrics-desktop.sh
-sudo chmod +x ~/.config/sway/handlers/keyboard-switch-layout.sh
-sudo chmod +x ~/.config/sway/sway-run.sh
-
-echo '[ "$(tty)" = "/dev/tty1" ] && ~/.config/sway/sway-run.sh' >> ~/.zprofile
+grep -qxF "[ \"$(tty)\" = \"/dev/tty1\" ] && startx" "$HOME/.zprofile" || \
+echo "[ \"\$(tty)\" = \"/dev/tty1\" ] && startx" >> "$HOME/.zprofile"
 
 echo "The entire OS was sucessfully complety setup."
 echo "bye."
