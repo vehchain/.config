@@ -1,0 +1,43 @@
+BasedOnStyle: LLVM
+IndentWidth: 2
+TabWidth: 2
+UseTab: Always
+
+ColumnLimit: 120
+
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterFunction: false #true # Allman
+  AfterStruct: false # K&R
+  AfterControlStatement: false # if/for/while K&R
+  AfterClass: false
+  BeforeElse: false
+  IndentBraces: false
+
+SpaceAfterCStyleCast: true
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+SpaceAfterTemplateKeyword: false
+
+SpaceBeforeAssignmentOperators: true
+SpaceAroundPointerQualifiers: Default
+
+PointerAlignment: Right # int *ptr
+
+SortIncludes: true
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '^<.*>$'
+    Priority: 1
+  - Regex: '^".*"$'
+    Priority: 2
+
+AllowAllArgumentsOnNextLine: true
+BinPackArguments: true
+BinPackParameters: true
+
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Empty
+
+ReflowComments: false
