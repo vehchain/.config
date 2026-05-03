@@ -8,7 +8,8 @@ sudo pacman -S \
  wl-clipboard  nwg-look terminus-font yad lxqt-policykit jq \
  mesa vulkan-icd-loader vulkan-tools vulkan-radeon vulkan-intel \
  lib32-mesa lib32-vulkan-icd-loader lib32-vulkan-tools lib32-vulkan-radeon \
- lib32-vulkan-intel neovim kitty xorg xorg-xinit i3-wm i3blocks i3status 
+ lib32-vulkan-intel neovim kitty xorg xorg-xinit i3-wm i3blocks i3status \
+ noto-fonts-emoji ttf-iosevka-nerd ttf-iosevkaterm-nerd
 
 rc-update add pipewire default --user
 rc-update add wireplumber default --user
