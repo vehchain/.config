@@ -3,15 +3,15 @@ IndentWidth: 2
 TabWidth: 2
 UseTab: Always
 
-ColumnLimit: 120
+ColumnLimit: 0
 
 BreakBeforeBraces: Custom
 BraceWrapping:
-  AfterFunction: false #true # Allman
-  AfterStruct: false # K&R
-  AfterControlStatement: false # if/for/while K&R
+  AfterFunction: false
+  AfterStruct: false
+  AfterControlStatement: false
   AfterClass: false
-  BeforeElse: false
+  BeforeElse: true
   IndentBraces: false
 
 SpaceAfterCStyleCast: true
@@ -22,7 +22,7 @@ SpaceAfterTemplateKeyword: false
 SpaceBeforeAssignmentOperators: true
 SpaceAroundPointerQualifiers: Default
 
-PointerAlignment: Right # int *ptr
+PointerAlignment: Right
 
 SortIncludes: true
 IncludeBlocks: Regroup
