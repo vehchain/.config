@@ -1,6 +1,6 @@
 # .config
 
-personal config files for my **arch linux + sway** setup.
+personal config files for my **artix linux + sway** setup.
 
 this repo exists mostly so i can **restore my desktop after reinstalling** or moving machines.
 
