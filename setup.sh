@@ -8,7 +8,7 @@ sudo pacman -S \
  terminus-font yad grim lxqt-policykit jq \
  mesa vulkan-icd-loader vulkan-tools vulkan-radeon \
  lib32-mesa lib32-vulkan-icd-loader lib32-vulkan-radeon \
- yazi neovim kitty noto-fonts-emoji ttf-iosevka-nerd ttf-iosevkaterm-nerd
+ yazi neovim kitty noto-fonts-emoji ttf-iosevka-nerd ttf-iosevkaterm-nerd openssh
 
 rc-update add pipewire default --user
 rc-update add wireplumber default --user
