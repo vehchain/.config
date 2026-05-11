@@ -11,9 +11,6 @@ exec_always ddcutil detect | grep "I2C bus:" | awk -F'i2c-' '{print $2}' | awk '
 bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy -t image/png
 for_window [app_id="yad"] floating enable, move position center, border none
 
-default_border none
-default_floating_border none
-
 bindsym $mod+d exec rofi -show drun -p 
 bindsym $mod+TAB exec rofi -show
 
@@ -129,6 +126,19 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+client.focused          #ffffff #ffffff #000000 #ffffff #ffffff
+client.focused_inactive #000000 #000000 #ffffff #000000 #000000
+client.unfocused        #000000 #000000 #ffffff #000000 #000000
+
+#default_border pixel 1
+#default_floating_border pixel 1
+default_border none
+default_floating_border none
+
+workspace 5 gaps horizontal 150
+workspace 5 gaps vertical 50
+workspace 5 gaps inner 10
 
 bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
 bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
