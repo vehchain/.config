@@ -16,7 +16,7 @@ return {
         astro = { "astro", stop_after_first = true },
         go = { "gofumpt", "golines", "goimports-reviser" },
         c = { "clang_format" },
-        cpp = { "clang_format" },
+      	cpp = { "clang_format" },
         haskell = { "fourmolu" },
         yaml = { "yamlfmt" },
         html = { "prettier" },

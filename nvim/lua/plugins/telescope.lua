@@ -14,6 +14,7 @@ return {
         end,
         -- build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
       },
+      "nvim-telescope/telescope-file-browser.nvim",
     },
     config = function()
       require("telescope").setup({
@@ -71,6 +72,7 @@ return {
       vim.keymap.set("n", "<leader>fz", ":Telescope zoxide list<CR>", {})
       vim.keymap.set("n", "<leader>fv", builtin.help_tags, {})
       vim.keymap.set("n", "<leader>fp", builtin.builtin, {})
+      vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 
       vim.keymap.set(
         "n",
