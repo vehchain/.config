@@ -31,7 +31,8 @@
     font: "Iosevka Term 11";
 }
 window {
-    background-color: @background;
+    //background-color: @background;
+    background-color: rgba ( 0, 0, 0, 99 % );
     border:           5;
     padding:          2;
 }
