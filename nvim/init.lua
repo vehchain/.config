@@ -1,22 +1,37 @@
-local utils = require("utils")
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+vim.g.mapleader = " "
 
--- stop annoying deprecation errors that i cant control
--- because i dont have access to the plugins that use
--- the deprecated functions
-vim.deprecate = function() end
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-require("options")
-local km = require("keymaps")
-require("custom_filetypes")
-require("lazynvim")
-km.after_lazy_keymaps()
-require("cool_stuff")
-require("mappings")
-require("autocmds")
+if not vim.uv.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+end
 
-utils.color_overrides.setup_colorscheme_overrides()
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd.colorscheme("base16-black-metal-immortal")
+local lazy_config = require "configs.lazy"
 
-utils.fix_telescope_parens_win()
-utils.dashboard.setup_dashboard_image_colors()
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+  },
+
+  { import = "plugins" },
+}, lazy_config)
+
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "options"
+require "autocmds"
+
+vim.schedule(function()
+  require "mappings"
+end)
