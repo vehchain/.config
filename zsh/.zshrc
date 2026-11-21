@@ -1,4 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 ZSH_THEME="custom"
 
@@ -18,6 +20,8 @@ setopt share_history
 setopt hist_ignore_all_dups
 
 alias n='nvim'
+alias vi='nvim'
+alias vim='nvim'
 alias t='tmux'
 alias ta='tmux attach'
 alias tk='tmux kill-server'
@@ -39,3 +43,4 @@ alias py='python3'
 alias y='yazi'
 alias lg='lazygit'
 alias dev='cd ~/Downloads/things/programming'
+alias sudo='doas'
